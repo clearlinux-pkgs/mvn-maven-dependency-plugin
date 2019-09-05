@@ -4,20 +4,24 @@
 #
 Name     : mvn-maven-dependency-plugin
 Version  : 3.1.1
-Release  : 3
+Release  : 4
 URL      : https://github.com/apache/maven-dependency-plugin/archive/maven-dependency-plugin-3.1.1.tar.gz
 Source0  : https://github.com/apache/maven-dependency-plugin/archive/maven-dependency-plugin-3.1.1.tar.gz
-Source1  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.jar
-Source2  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.pom
-Source3  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.0.1/maven-dependency-plugin-3.0.1.jar
-Source4  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.0.1/maven-dependency-plugin-3.0.1.pom
-Source5  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.jar
-Source6  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.pom
+Source1  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar
+Source2  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom
+Source3  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.jar
+Source4  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.pom
+Source5  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.0.1/maven-dependency-plugin-3.0.1.jar
+Source6  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.0.1/maven-dependency-plugin-3.0.1.pom
+Source7  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.jar
+Source8  : https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-maven-dependency-plugin-data = %{version}-%{release}
 Requires: mvn-maven-dependency-plugin-license = %{version}-%{release}
+BuildRequires : apache-maven
+BuildRequires : buildreq-mvn
 
 %description
 <!---
@@ -53,23 +57,29 @@ license components for the mvn-maven-dependency-plugin package.
 mkdir -p %{buildroot}/usr/share/package-licenses/mvn-maven-dependency-plugin
 cp src/site/apt/examples/copying-artifacts.apt.vm %{buildroot}/usr/share/package-licenses/mvn-maven-dependency-plugin/src_site_apt_examples_copying-artifacts.apt.vm
 cp src/site/apt/examples/copying-project-dependencies.apt.vm %{buildroot}/usr/share/package-licenses/mvn-maven-dependency-plugin/src_site_apt_examples_copying-project-dependencies.apt.vm
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.9
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.9
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.pom
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.9
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.0.1
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.0.1/maven-dependency-plugin-3.0.1.jar
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.0.1/maven-dependency-plugin-3.0.1.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.0.1
-cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.0.1/maven-dependency-plugin-3.0.1.pom
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.0.1/maven-dependency-plugin-3.0.1.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.1.1
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.jar
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.1.1
-cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.pom
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.pom
 
 
 %files
@@ -77,6 +87,8 @@ cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/apache/maven/plugin
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar
+/usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom
 /usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.jar
 /usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.9/maven-dependency-plugin-2.9.pom
 /usr/share/java/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/3.0.1/maven-dependency-plugin-3.0.1.jar
